@@ -24,10 +24,16 @@ jobs:
            sudo -E apt-get clean 
            sudo apt install expect -y
            
-       - name: cloning repo
+       - name: cloning repo & setting up config
          continue-on-error: true
          run: |
            git clone https://github.com/ElytrA8/shell-bot source
+           cd source
+           touch config.json
+           echo "{" >> "config.json"
+           echo "    "authToken": "${{ secrets.BOTTOKEN }}"," >> "config.json"
+           echo "    "owner": ${{ secrets.USERID }}" >> "config.json"
+           echo "}" >> "config.json"
        - name: compilation
          continue-on-error: true
          run: |
