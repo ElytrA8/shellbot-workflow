@@ -33,13 +33,13 @@ jobs:
          run: |
            ls
            cd source
-           npm install
+           docker container prune --force
+           docker build . -t shell-bot
        - name: running Docker
          timeout-minutes: 340
          continue-on-error: true
          run: |
-           cd source
-           node server
+           docker run shell-bot
            
        - name: Loop workflow
          continue-on-error: true
