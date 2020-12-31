@@ -17,7 +17,7 @@ jobs:
          run: |
            git config --global user.name "ElytrA8"
            git config --global user.email "manofuranium@gmail.com"         
-           brew install nodejs expect          
+           brew install nodejs        
        - name: cloning repo & setting up config
          continue-on-error: true
          run: |
