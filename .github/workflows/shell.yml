@@ -15,6 +15,7 @@ jobs:
        - name: initialization
          continue-on-error: true
          run: |
+           sudo apt-get install expect -y
            git config --global user.name "ElytrA8"
            git config --global user.email "manofuranium@gmail.com"           
        - name: cloning repo & setting up config
